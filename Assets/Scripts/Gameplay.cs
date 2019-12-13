@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gameplay : MonoBehaviour
 {
     private const int numberOfPlayers = 4;
-    private string[] players = new[] {"player A", "player B", "player C", "player D"};
+    [SerializeField] TextMeshProUGUI playerA;
+    [SerializeField] TextMeshProUGUI playerB;
+    [SerializeField] TextMeshProUGUI playerC;
+    [SerializeField] TextMeshProUGUI playerD;
+    [Header("Names")]
+    [SerializeField] string playerAName;
+    [SerializeField] string playerBName;
+    [SerializeField] string playerCName;
+    [SerializeField] string playerDName;
+    private string[] players;
     private const int numberOfRounds = 12;
     private const int quatroRoundsIndex = 8;
     private char[] rounds = new[] {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'B', 'M', 'Z', 'F'};
@@ -15,6 +25,10 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerA.SetText(playerAName);
+        playerB.SetText(playerBName);
+        playerC.SetText(playerCName);
+        playerD.SetText(playerDName);
         Debug.Log(rounds[currentRoundIndex]);
     }
 
